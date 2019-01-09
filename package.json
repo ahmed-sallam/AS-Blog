@@ -1,0 +1,35 @@
+{
+  "name": "as-blog",
+  "version": "0.0.1",
+  "description": "This is AS BLog System using Stack (MERN)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "blog",
+    "post",
+    "node",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
+  "repository": "https://github.com/ahmed-sallam/AS-Blog.git",
+  "author": "Ahmed Sallam",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
