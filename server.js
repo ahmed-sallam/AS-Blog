@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const passport = require("passport");
 
 const usersRoute = require("./src/routes/api/users");
+const categoriesRoute = require("./src/routes/api/categories");
 const notFoundRoute = require("./src/routes/notFound");
 
 // Get Env variables
@@ -24,6 +25,7 @@ app.use(express.json());
 
 // Routing
 app.use("/api/users", usersRoute);
+app.use("/api/cats", categoriesRoute);
 app.use("*", notFoundRoute);
 
 // Passport Config
