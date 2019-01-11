@@ -2,12 +2,12 @@
 const validator = require("validator");
 const isObjEmpty = require("./isObjEmpty.js");
 
-// Validate inputs data for category route
-const validateCategoryInputs = ({ name = "" }) => {
+// Validate inputs data for tag route
+const validateTagInputs = ({ name = "" }) => {
   let errors = {};
 
   if (validator.isEmpty(name)) {
-    errors.name = "Category name is required!";
+    errors.name = "Tag name is required!";
   }
 
   return {
@@ -16,4 +16,4 @@ const validateCategoryInputs = ({ name = "" }) => {
   };
 };
 
-module.exports = { validateCategoryInputs };
+module.exports = { validateTagInputs };

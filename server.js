@@ -7,6 +7,8 @@ const passport = require("passport");
 
 const usersRoute = require("./src/routes/api/users");
 const categoriesRoute = require("./src/routes/api/categories");
+const tagsRoute = require("./src/routes/api/tags");
+const postsRoute = require("./src/routes/api/posts");
 const notFoundRoute = require("./src/routes/notFound");
 
 // Get Env variables
@@ -26,6 +28,8 @@ app.use(express.json());
 // Routing
 app.use("/api/users", usersRoute);
 app.use("/api/cats", categoriesRoute);
+app.use("/api/tags", tagsRoute);
+app.use("/api/posts", postsRoute);
 app.use("*", notFoundRoute);
 
 // Passport Config

@@ -7,13 +7,11 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "users"
   },
-  categories: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "categories"
-    }
-  ],
-  user: [
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "categories"
+  },
+  tags: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "tags"

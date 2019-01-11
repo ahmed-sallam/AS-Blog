@@ -28,12 +28,7 @@ router.post(
       if (req.body.parentCategory)
         newCategory.parentCategory = req.body.parentCategory;
       let generatedCat = await newCategory.save();
-      res.json({
-        id: generatedCat._id,
-        name: generatedCat.name,
-        description: generatedCat.description,
-        parentCategory: generatedCat.parentCategory
-      });
+      res.json(generatedCat);
     } catch (error) {
       res.status(500).json({ msg: "Unknown Server Error" });
     }
@@ -49,7 +44,10 @@ router.get("/get/:catId", async (req, res) => {
     let cat = await Category.findById(req.params.catId);
     res.json(cat);
   } catch (error) {
-    res.status(400).json({ msg: "Category not found!" });
+    if (error.model.modelName) {
+      return res.status(400).json({ category: "Category not found!" });
+    }
+    return res.status(500).json({ msg: "Unknown Server Error" });
   }
 });
 
@@ -80,7 +78,10 @@ router.delete(
       });
       res.json({ msg: "success" });
     } catch (error) {
-      res.status(400).json({ msg: "Category not found" });
+      if (error.model.modelName) {
+        return res.status(400).json({ category: "Category not found!" });
+      }
+      return res.status(500).json({ msg: "Unknown Server Error" });
     }
   }
 );
@@ -103,7 +104,10 @@ router.put(
       await Category.findOneAndUpdate({ _id: req.params.catId }, updatedCat);
       res.json({ msg: "Success" });
     } catch (error) {
-      res.status(400).json({ msg: "Category not found!" });
+      if (error.model.modelName) {
+        return res.status(400).json({ category: "Category not found!" });
+      }
+      return res.status(500).json({ msg: "Unknown Server Error" });
     }
   }
 );
